@@ -6,10 +6,15 @@ game.Players.LocalPlayer.CameraMaxZoomDistance = 100000
 game.Players.LocalPlayer.CameraMinZoomDistance = 1
 game.Players.LocalPlayer.CameraMode = "Classic"
 game.ReplicatedStorage.HDAdminClient.Assets.NightVision:Destroy()
+game.Players.LocalPlayer.PlayerGui.HDAdminGUIs.ChildAdded:Connect(function(child)
+    if child.Name == "CommandMenuchatLogs" or child.Name == "CommandMenucommandLogs" then
+        child:Destroy()
+    end
+end)
 prefix = game.Players.LocalPlayer.PlayerGui.HDAdminGUIs.MainFrame.Pages.Settings.Custom["AE1 Prefix"].SettingValue.TextBox.Text
 
 game.StarterGui:SetCore("SendNotification", {Title="Family Hell - Anti-Give-All"; Text="Press G to ENABLE visibly, H to ENABLE invisibly!"; Duration=math.huge;})
-game.StarterGui:SetCore("SendNotification", {Title="Family Hell - Anti-Give-All"; Text="This also disables nightvision, blur and warp!"; Duration=math.huge;})
+game.StarterGui:SetCore("SendNotification", {Title="Family Hell - Anti-Give-All"; Text="This also disables nightvision, blur, warp, clogs and logs!"; Duration=math.huge;})
 game.ReplicatedStorage.HDAdminClient.Audio.Notice:Play()
 
 start = game:GetService('UserInputService').InputBegan:Connect(function(input, typing)
